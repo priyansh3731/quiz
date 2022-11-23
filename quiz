@@ -1,0 +1,81 @@
+var readlineSync = require('readline-sync');
+var username = readlineSync.question("what's your name? : ");
+
+console.log(username+" welcome to priyanshu's quiz game \n\n");
+console.log("please enter your answer in given option \n");
+var score = 0;
+
+var questionOne = {
+  question : "1. how many days in week ? "+"\na: 8"+"\nb: 7"+"\nc: 1\n",
+  answer : "b"
+}
+
+var questionTwo = {
+  question : "2. How many months do we have in a year? "+"\na: 24"+"\nb: 56"+"\nc: 12\n",
+  answer : "c"
+}
+
+var questionThird = {
+  question : "3. How many days are there in a year? "+"\na: 24"+"\nb: 365"+"\nc: 12\n",
+  answer : "b"
+}
+
+var questionFour = {
+  question : "4. What is 2+2? "+"\na: 4"+"\nb: 365"+"\nc: 12\n",
+  answer : "a"
+}
+
+var questionFive = {
+  question : "5. Which number comes after 6? "+"\na: 4"+"\nb: 7"+"\nc: 12\n",
+  answer : "b"
+}
+
+var questionsix = {
+  question : "6. How many colors are there in a rainbow? "+"\na: 4"+"\nb: 7"+"\nc: 12\n",
+  answer : "b"
+}
+
+var questionseven = {
+  question : "7. What are your ears for? "+"\na: dance"+"\nb: singing"+"\nc: hearing\n",
+  answer : "c"
+}
+
+var questioneight = {
+  question : "8. Which day comes after Friday? "+"\na: sunday"+"\nb: Saturday"+"\nc: monday\n",
+  answer : "b"
+}
+
+var questionnine = {
+  question : "9. How many letters are there in the English alphabet? "+"\na: 12"+"\nb: 23"+"\nc: 26\n",
+  answer : "c"
+}
+
+var questionten = {
+  question : "10. How many consonants are there in the English alphabet? "+"\na: 12"+"\nb: 21"+"\nc: 26\n",
+  answer : "b"
+}
+
+function play(question,answer){
+  var userAnswer = readlineSync.question(question);
+    if (userAnswer >"d" && userAnswer < "z"){
+      console.log("please enter the vailid answer");
+      return;
+    }
+    if (userAnswer === answer) {
+    console.log(username + " , you are rigth \n");
+    score++;
+  } else {
+    console.log(username + " , you are wrong \n");
+    score--;
+   }
+}
+  
+
+var questions=[questionOne,questionTwo,questionThird,questionFour,questionFive,questionsix,questionseven,questioneight,questionnine,questionten];
+
+
+for(var i=0;i<questions.length;i++){
+  var current = questions[i];
+  play(current.question,current.answer);
+}
+console.log("your score is : "+score);
